@@ -41,7 +41,7 @@ function App() {
         
         axios.get(`${import.meta.env.VITE_BASE_URL}/v2/api/${import.meta.env.VITE_API_PATH}/admin/products`)
           .then((res)=> setProducts(res.data.products))
-          .then(() => console.log(tempProduct))
+          .then(() => console.log(products))
           .catch((error)=> console.log(error)); 
         
         setIsAuth(true);
@@ -112,7 +112,7 @@ function App() {
                       </div>
                       <h5 className="mt-3">更多圖片：</h5>
                       <div className="d-flex flex-wrap">
-                          { tempProduct.imagesUrl.map((url, index) => (
+                          { tempProduct.imageUrl.map((url, index) => (
                               <img key={index} src={url} className="images" />
                           ))}
                       </div>
@@ -139,7 +139,7 @@ function App() {
         <p className="mt-5 mb-3 text-muted">&copy; 2024~∞ - 六角學院</p>
       </div>}
     </>
-  ) 
+  )
 }
 
 export default App
